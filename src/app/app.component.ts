@@ -23,24 +23,19 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <h1>Hi there!</h1>
-    <h2>Welcome {{ name}}</h2>
-    <div>Inerpolation examples</div>
-    <div> {{ 2+2 }} </div>
-    <div>{{ "Welcome " + name }}</div>
-    <div>{{ name.length}} </div>
-    <div>{{ name.toUpperCase()}} </div>
-    <div>{{ greetUser()}}</div>
-    <!-- <div>{{ a = 'hello' }}</div> -->
-    <!-- <div>{{window.location.href }}</div> -->
+   <h1> Hello </h1>
+   <input type="text" value="Chan" [id]="elementId" [disabled]="disabledInter"/>
+   <input type="text" value="Chan" id="{{elementId}}" disabled="{{disabledInter}}"/>
+
   `
 })
 export class AppComponent {
 
-  title = 'App title';
-  name = "Chan";
+  // Diff bw HTML property and attribute
+  // Attributes - HTML (cannot change once done), Properties - DOM (change dynamically)
+  // $0.getAttribute('value'); $0.value
 
-  greetUser = () => {
-    return 'Greetings '+ this.name;
-  }
+  elementId = "my-input";
+
+  disabledInter = false;
 }
