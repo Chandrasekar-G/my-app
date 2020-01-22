@@ -24,17 +24,23 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <h1>Hi there!</h1>
-    <div>{{ title }}</div>
-  `,
-  styles: [
-    `
-    div {
-      color: red;
-    }
-    `
-  ]
+    <h2>Welcome {{ name}}</h2>
+    <div>Inerpolation examples</div>
+    <div> {{ 2+2 }} </div>
+    <div>{{ "Welcome " + name }}</div>
+    <div>{{ name.length}} </div>
+    <div>{{ name.toUpperCase()}} </div>
+    <div>{{ greetUser()}}</div>
+    <!-- <div>{{ a = 'hello' }}</div> -->
+    <!-- <div>{{window.location.href }}</div> -->
+  `
 })
 export class AppComponent {
 
   title = 'App title';
+  name = "Chan";
+
+  greetUser = () => {
+    return 'Greetings '+ this.name;
+  }
 }
