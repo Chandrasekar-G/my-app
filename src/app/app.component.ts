@@ -24,25 +24,19 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-   <div *ngIf="name; else elseBlock">
-     Name is displayed
-   </div>
-   <ng-template #elseBlock>
-     Name is hidden
-   </ng-template>
 
+   <span [ngSwitch]="color">
+   <p *ngSwitchCase="'red'">
+    Red
+   </p>
+   <p *ngSwitchCase="'blue'">
+    Blue
+   </p>
+   <p *ngSwitchDefault>
+    Default
+   </p>
+   </span>
 
-   <div *ngIf="name;then thenBlock; else elseBlock2">
-   </div>
-
-   <ng-template #thenBlock>
-     Name is displayed
-   </ng-template>
-   
-   <ng-template #elseBlock2>
-     Name is hidden
-   </ng-template>
-   
   `,
   styles: [`
   .success {
@@ -58,5 +52,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = false;
+  color = 'red';
 
 }
