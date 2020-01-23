@@ -24,18 +24,36 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-   <input type="text" value="Chan" [id]="elementId" [disabled]="disabledInter"/>
-   <input type="text" value="Chan" id="{{elementId}}" disabled="{{disabledInter}}"/>
-
-  `
+  <div [class]="successClass">This is a success block</div>
+  <div class="error">This is a error block</div>
+  <div class="special" [class]="successClass">class becomes dummy when we bind it.</div>
+  <div [class.error]="isError">THis is an error!!</div>
+  <div [ngClass]="messageClasses">This explains conditionally applying multiple classes</div>
+  `,
+  styles: [`
+  .success {
+    color:green;
+  }
+  .error {
+    color:red;
+  }
+  .special {
+    font-style: italic;
+  }
+  `]
 })
 export class AppComponent {
 
-  // Diff bw HTML property and attribute
-  // Attributes - HTML (cannot change once done), Properties - DOM (change dynamically)
-  // $0.getAttribute('value'); $0.value
+  successClass = 'success';
 
-  elementId = "my-input";
+  isError = false;
+  isSpecial = true;
 
-  disabledInter = false;
+  // ng class directive for conditionally applying multiple classes
+  messageClasses = {
+    'success': !this.isError,
+    'error': this.isError,
+    'special': this.isSpecial
+  };
+
 }
