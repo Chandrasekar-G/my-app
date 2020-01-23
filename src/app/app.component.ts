@@ -24,11 +24,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-  <div [class]="successClass">This is a success block</div>
-  <div class="error">This is a error block</div>
-  <div class="special" [class]="successClass">class becomes dummy when we bind it.</div>
-  <div [class.error]="isError">THis is an error!!</div>
-  <div [ngClass]="messageClasses">This explains conditionally applying multiple classes</div>
+    <div [style.color]="'red'">Style binding</div>
+    <div [style.color]="redColorVariable">Style binding</div>
+    <div [style.color]="hasError? 'red' : 'green'">Style binding</div>
+    <div [ngStyle]="titleStyles">Style binding</div>
   `,
   styles: [`
   .success {
@@ -44,16 +43,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  successClass = 'success';
+  hasError = false;
 
-  isError = false;
-  isSpecial = true;
-
-  // ng class directive for conditionally applying multiple classes
-  messageClasses = {
-    'success': !this.isError,
-    'error': this.isError,
-    'special': this.isSpecial
+  redColorVariable = 'red';
+  titleStyles = {
+    'color': 'red',
+    'fontStyle': 'italic'
   };
 
 }
