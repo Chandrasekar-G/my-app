@@ -24,10 +24,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-    <div [style.color]="'red'">Style binding</div>
-    <div [style.color]="redColorVariable">Style binding</div>
-    <div [style.color]="hasError? 'red' : 'green'">Style binding</div>
-    <div [ngStyle]="titleStyles">Style binding</div>
+    <button (click)="myFunc($event)">Hello there!</button>
   `,
   styles: [`
   .success {
@@ -43,12 +40,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  hasError = false;
-
-  redColorVariable = 'red';
-  titleStyles = {
-    'color': 'red',
-    'fontStyle': 'italic'
-  };
-
+  myFunc = (name, event) => {
+    console.log(name);
+    console.log(event);
+  }
 }
