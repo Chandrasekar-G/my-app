@@ -18,13 +18,14 @@
 // }
 
 
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-    <button (click)="myFunc($event)">Hello there!</button>
+   <input type="text" #myInput />
+    <button (click)="myFunc(myInput)" >Hello there!</button>
   `,
   styles: [`
   .success {
@@ -39,9 +40,7 @@ import { Component } from '@angular/core';
   `]
 })
 export class AppComponent {
-
-  myFunc = (name, event) => {
-    console.log(name);
-    console.log(event);
+  myFunc = (input) => {
+    console.log(input.value);
   }
 }
