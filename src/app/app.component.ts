@@ -24,8 +24,9 @@ import { Component, ViewChild } from '@angular/core';
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-   <input type="text" #myInput />
-    <button (click)="myFunc(myInput)" >Hello there!</button>
+   <input type="text" [(ngModel)]="name">
+   {{ name }}
+    <button (click)="myFunc()" >Hello there!</button>
   `,
   styles: [`
   .success {
@@ -40,7 +41,9 @@ import { Component, ViewChild } from '@angular/core';
   `]
 })
 export class AppComponent {
-  myFunc = (input) => {
-    console.log(input.value);
+  name = 'Chan';
+
+  myFunc = () => {
+    this.name = "New name set from the class";
   }
 }
