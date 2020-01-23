@@ -18,15 +18,31 @@
 // }
 
 
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
    <h1> Hello </h1>
-   <input type="text" [(ngModel)]="name">
-   {{ name }}
-    <button (click)="myFunc()" >Hello there!</button>
+   <div *ngIf="name; else elseBlock">
+     Name is displayed
+   </div>
+   <ng-template #elseBlock>
+     Name is hidden
+   </ng-template>
+
+
+   <div *ngIf="name;then thenBlock; else elseBlock2">
+   </div>
+
+   <ng-template #thenBlock>
+     Name is displayed
+   </ng-template>
+   
+   <ng-template #elseBlock2>
+     Name is hidden
+   </ng-template>
+   
   `,
   styles: [`
   .success {
@@ -41,9 +57,6 @@ import { Component, ViewChild } from '@angular/core';
   `]
 })
 export class AppComponent {
-  name = 'Chan';
+  name = false;
 
-  myFunc = () => {
-    this.name = "New name set from the class";
-  }
 }
