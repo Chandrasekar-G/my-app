@@ -25,18 +25,10 @@ import { Component } from '@angular/core';
   template: `
    <h1> Hello </h1>
 
-   <span [ngSwitch]="color">
-   <p *ngSwitchCase="'red'">
-    Red
-   </p>
-   <p *ngSwitchCase="'blue'">
-    Blue
-   </p>
-   <p *ngSwitchDefault>
-    Default
-   </p>
-   </span>
-
+   <div *ngFor="let color of colors; index as i">
+     {{ i +  color.name }}
+     {{ 'The hex code  is ' + color.hex}}
+   </div>
   `,
   styles: [`
   .success {
@@ -52,6 +44,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = false;
-  color = 'red';
+  colors = [{ 'name': 'red', 'hex': '#f00' },
+  { 'name': 'green', 'hex': '#0f0' },
+  { 'name': 'blue', 'hex': '#00f' }];
 
 }
