@@ -5,6 +5,7 @@ import { IProduct } from './models/Product';
   selector: 'app-root',
   template: `
    <app-product></app-product>
+   <app-cart></app-cart>
   `
 })
 export class AppComponent {

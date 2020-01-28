@@ -2,4 +2,6 @@
 <div *ngFor="let product of products">
     <span>{{product.name}}</span>
     <span>{{'  Rs.' + product.price }}</span>
+    <button (click)="addToCart(product)">Add to cart</button>
+    <br>
 </div>

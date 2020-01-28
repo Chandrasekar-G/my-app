@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 // import { IProduct } from '../models/Product';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor(private http: HttpClient) { }
+  private cartItems: any[] = [];
+  private _cartCount : BehaviorSubject<number>;
+
+  constructor(private http: HttpClient) { 
+    this._cartCount = new BehaviorSubject(0);
+  }
 
   public getAllProducts = async () => {
     try {
@@ -22,5 +28,15 @@ export class CartService {
         error: e
       };
     }
+  }
+
+  public addToCart = (product) => {
+    this.cartItems.push(product);
+    console.log(this.cartItems);
+    this._cartCount.next(this.cartItems.length);
+  }
+
+  public getCartCount = () => {
+    return this._cartCount.asObservable();
   }
 }
