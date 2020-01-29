@@ -12,7 +12,7 @@ export class CartService {
   private _cartCount : BehaviorSubject<number>;
 
   constructor(private http: HttpClient) { 
-    this._cartCount = new BehaviorSubject(0);
+    this._cartCount = new BehaviorSubject(2);
   }
 
   public getAllProducts = async () => {

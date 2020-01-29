@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
 
   cartCount: number;
+  today = new Date();
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class CartComponent implements OnInit {
 
   subscribeToCart = () => {
     this.cartService.getCartCount().subscribe(data => {
+      console.log(data);
       this.cartCount = data;
     });
   }
