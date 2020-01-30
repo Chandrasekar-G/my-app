@@ -8,6 +8,8 @@ import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SqrtPipePipe } from './pipes/sqrt-pipe.pipe';
 import { SimpleDirective } from './directives/simple.directive';
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SimpleDirective } from './directives/simple.directive';
     ProductComponent,
     CartComponent,
     SqrtPipePipe,
-    SimpleDirective
+    SimpleDirective,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

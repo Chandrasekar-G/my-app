@@ -6,6 +6,7 @@ import { IProduct } from './models/Product';
   template: `
    <app-product></app-product>
    <app-cart></app-cart>
+   <app-parent></app-parent>
   `
 })
 export class AppComponent {
